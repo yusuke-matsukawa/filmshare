@@ -1,0 +1,6 @@
+<h3>カテゴリ編集</h3>
+<%= form_for(@category ,url: admin_category_path) do |f| %>
+  <%= f.label :name, "カテゴリ" %>
+  <%= f.text_field :name%>
+  <%=f.submit "変更を保存する",class:"btn btn-info" %>
+<%end%>
