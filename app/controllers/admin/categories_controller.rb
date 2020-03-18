@@ -1,8 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
-    @category = Category.new
+    @categories = Category.all #カテゴリを全て格納
+    @category = Category.new #新規作成用。空のモデル
   end
 
   def create

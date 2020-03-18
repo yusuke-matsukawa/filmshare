@@ -10,6 +10,36 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a class="sitelogo" href="/">
+            <%= image_tag('logo.png') %>
+          </a>
+          <ul class="navber-right">
+            <!-- 会員ログイン中 -->
+            <% if user_signed_in? %>
+              <!-- <li><%= link_to "トップページ", root_path, class: 'glyphicon glyphicon-home' %></li> -->
+              <!-- <li><%= link_to "アバウト", home_about_path, class: 'glyphicon glyphicon-link' %></li> -->
+              <!-- <li><%= link_to "カート", cart_products_path, class: 'glyphicon glyphicon-shopping-cart' %></li> -->
+              <!-- <li><%= link_to "マイページ", member_path(current_member), class: 'glyphicon glyphicon-user' %></li> -->
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'%></li>
+            <!-- 管理者ログイン中 -->
+            <% elsif admin_signed_in? %>
+              <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'glyphicon glyphicon-tags' %></li>
+              <!-- <li><%= link_to "会員一覧", admin_members_path, class: 'glyphicon glyphicon-user' %></li> -->
+              <!-- <li><%= link_to "注文履歴一覧", admin_orders_path, class: 'glyphicon glyphicon-tasks' %></li> -->
+              <!-- <li><%= link_to "商品一覧", admin_products_path, class: 'glyphicon glyphicon-th-list' %></li> -->
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
+            <!-- ログアウト中 -->
+            <% else %>
+              <li><%= link_to "会員登録", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+              <li><%= link_to "ログイン", user_session_path, class: 'glyphicon glyphicon-log-in' %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
