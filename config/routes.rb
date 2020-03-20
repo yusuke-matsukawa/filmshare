@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
 
+resources :posts
+
 namespace :admin do
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
