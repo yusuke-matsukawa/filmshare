@@ -19,10 +19,6 @@
           <ul class="navber-right">
             <!-- 会員ログイン中 -->
             <% if user_signed_in? %>
-              <!-- <li><%= link_to "トップページ", root_path, class: 'glyphicon glyphicon-home' %></li> -->
-              <!-- <li><%= link_to "アバウト", home_about_path, class: 'glyphicon glyphicon-link' %></li> -->
-              <!-- <li><%= link_to "カート", cart_products_path, class: 'glyphicon glyphicon-shopping-cart' %></li> -->
-              <!-- <li><%= link_to "マイページ", member_path(current_member), class: 'glyphicon glyphicon-user' %></li> -->
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'%></li>
             <!-- 管理者ログイン中 -->
             <% elsif admin_signed_in? %>

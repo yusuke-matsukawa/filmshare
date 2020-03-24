@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h3>投稿一覧</h3>
+<% @posts.each do |post| %>
+  <%= post.user.name %>
+  <%= post.title %>
+  <%= post.category.name %>
+    <% post.genre_posts.each do |genre_post| %>
+      <%= genre_post.genre.name %>
+    <% end %>
+  <%= post.opinion %><br>
+<% end %>
