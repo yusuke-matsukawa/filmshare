@@ -1,0 +1,22 @@
+<h3>ユーザ詳細</h3>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+<%= @user.name %><br>
+<%= @user.introduction %>
+<% if @user.id == current_user.id %>
+  <%= link_to "編集", edit_user_path(current_user.id), class:"btn btn-info" %>
+<% else %>
+  <%= link_to "編集", user_path(current_user.id), class:"btn btn-info" %>
+<% end %>
+
+<h4>ユーザの投稿</h4>
+<% @user.posts.each do |post| %>
+  <%= post.user.name %>
+  <%= post.title %>
+  <p>カテゴリー：<%= post.category.name %></p>
+    <p>ジャンル：
+      <% post.genre_posts.each do |genre_post| %>
+      <%= genre_post.genre.name %>
+    <% end %>
+    </p>
+  <%= post.opinion %><br>
+<% end %>

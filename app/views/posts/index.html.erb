@@ -2,9 +2,11 @@
 <% @posts.each do |post| %>
   <%= post.user.name %>
   <%= post.title %>
-  <%= post.category.name %>
-    <% post.genre_posts.each do |genre_post| %>
+  <p>カテゴリー：<%= post.category.name %></p>
+    <p>ジャンル：
+      <% post.genre_posts.each do |genre_post| %>
       <%= genre_post.genre.name %>
     <% end %>
+    </p>
   <%= post.opinion %><br>
 <% end %>
