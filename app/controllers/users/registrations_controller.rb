@@ -38,6 +38,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_sign_up_path_for(resource)
+    posts_path # 新規登録後に遷移するpathを設定
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
