@@ -1,44 +1,46 @@
-<div class="container">
-  <div class="row top">
-    <div class="col-md-offset-4 col-md-4">
-      <h2 class="text-center login-title">
-        <strong>映画、ドラマ、アニメの<br>
-        感想を自由に発信するSNS</strong>
-      </h2>
-    </div>
-  </div>
-
-  <div class="row main">
-    <div class="col-md-offset-2 col-md-4 text-center">
-      <h3 class="glyphicon glyphicon-share-alt login-list1">あなたの感想をシェアしよう</h3><br>
-      <h3 class="glyphicon glyphicon-eye-open login-list2">新しい発見をしよう</h3><br>
-      <h3 class="glyphicon glyphicon-bullhorn login-list3">話かけよう</h3>
-    </div>
-
-    <div class="col-md-offset-2 col-md-4">
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード" %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-  <!--   <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+<div class="login-body">
+  <div class="container">
+    <div class="row top">
+      <div class="col-md-offset-4 col-md-4">
+        <h2 class="text-center login-title">
+          <strong>映画、ドラマ、アニメの<br>
+          感想を自由に発信するSNS</strong>
+        </h2>
       </div>
-    <% end %> -->
+    </div>
 
-        <div class="actions">
-          <%= f.submit "ログイン", class:"btn btn-info" %>
+    <div class="row main">
+      <div class="col-md-4 text-center list">
+        <h3 class="glyphicon glyphicon-share-alt login-list1"><strong>あなたの感想をシェアしよう</strong></h3><br>
+        <h3 class="glyphicon glyphicon-eye-open login-list2"><strong>新しい発見をしよう</strong></h3><br>
+        <h3 class="glyphicon glyphicon-bullhorn login-list3"><strong>話かけよう</strong></h3>
+      </div>
+
+      <div class="col-md-offset-4 col-md-4 form">
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, "メールアドレス" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password, "パスワード" %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+    <!--   <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
         </div>
-      <% end %>
+      <% end %> -->
+
+          <div class="actions">
+            <%= f.submit "ログイン", class:"btn btn-info log" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
