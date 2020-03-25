@@ -1,2 +1,19 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h3>投稿の編集</h3>
+<%= form_for(@post) do |f| %>
+
+  <%= f.label :title, "作品名" %>
+  <%= f.text_field :title %><br/>
+
+  <%= f.label :category_id, "カテゴリー" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %><br/>
+
+  <%= f.label :genre, "ジャンル" %>
+  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+
+  <%= f.label :opinion, "感想" %>
+  <%= f.text_area :opinion %><br>
+
+  <%= f.submit "保存", class:"btn btn-info" %>
+<% end %>

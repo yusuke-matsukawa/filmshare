@@ -15,3 +15,68 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+header{
+  color: #756660;
+  background-color: #b0c4de;
+  margin-bottom:30px;
+}
+
+.sitelogo img{
+  height: 90px;
+}
+
+li{
+  position: relative;
+  list-style: none;
+}
+
+.navber-right > li{
+  line-height: 100px;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+li a{
+  color: #696969;
+}
+
+.navber-right{
+  float: right;
+  margin: 0;
+}
+
+.top{
+  margin: 75px 0 75px;
+}
+
+.login-list1{
+  color: #0000ff;
+  margin: 25px;
+}
+
+.login-list2{
+  color: #ffa500;
+  margin: 25px;
+}
+
+.login-list3{
+  color: #008000;
+  margin: 25px;
+}

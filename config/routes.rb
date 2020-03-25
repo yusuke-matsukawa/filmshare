@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
+get 'home/about' => 'homes#about'
 
 resources :posts
 resources :users, only: [:show, :edit, :update]
