@@ -1,23 +1,30 @@
-<h3>ユーザ詳細</h3>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<%= @user.name %><br>
-<%= @user.introduction %>
-<% if @user.id == current_user.id %>
-  <%= link_to "編集", edit_user_path(current_user.id), class:"btn btn-info" %>
-<% else %>
-  <%= link_to "編集", user_path(current_user.id), class:"btn btn-info" %>
-<% end %>
+<!-- ユーザ詳細 -->
 
-<h4>ユーザの投稿</h4>
-<% @user.posts.each do |post| %>
-  <%= post.user.name %>
-  <%= post.title %>
-  <p>カテゴリー：<%= post.category.name %></p>
-    <p>ジャンル：
-      <% post.genre_posts.each do |genre_post| %>
-      <%= genre_post.genre.name %>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" %>
+    <span class="show-name"><%= @user.name %></span><br>
+    <div class="show-intro"><%= @user.introduction %></div>
+    <% if @user.id == current_user.id %>
+      <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-info pull-right" %>
     <% end %>
-    </p>
-  <%= post.opinion %><br>
-  <%= link_to "詳細をみる", post_path(post.id) %><br>
-<% end %>
+  </div>
+</div>
+<div class="row user-posts">
+  <div class="col-md-offset-2 col-md-8">
+  <% @user.posts.each do |post| %>
+    <p class="show-title"><strong><%= post.title %></strong></p>
+    <span class="show-category">カテゴリー：<%= post.category.name %></span>
+    <span class="show-genre">ジャンル：|
+      <% post.genre_posts.each do |genre_post| %>
+        <%= genre_post.genre.name %> |
+      <% end %>
+    </span>
+    <div class="show-opinion">
+      <%= post.opinion %><br>
+    </div>
+    <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
+    <p>______________________________________________________________________________________________________________________________________</p>
+  <% end %>
+  </div>
+</div>

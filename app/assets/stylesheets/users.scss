@@ -1,3 +1,30 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-name{
+  font-size: 20px;
+}
+
+.show-intro{
+  margin: 20px 0 30px;
+}
+
+.user-posts{
+  margin: 50px;
+}
+
+.user-edit-body{
+  background-image: url("movie2.jpeg");
+  background-size: cover;
+  padding-bottom: 190px;
+  margin-top: -30px;
+}
+
+.user-edit-group{
+  background-color: #ffffff;
+  opacity: 0.9;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 70px;
+}

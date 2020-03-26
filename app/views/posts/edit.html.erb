@@ -8,9 +8,9 @@
   <%= f.collection_select :category_id, Category.all, :id, :name %><br/>
 
   <%= f.label :genre, "ジャンル" %>
-  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
-  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
-  <%= select_tag 'genre_ids[]', options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+  <%= f.select :, options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+  <%= f.select :selected, options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
+  <%= f.select :selected, options_from_collection_for_select(Genre.all, :id, :name ) %><br/>
 
   <%= f.label :opinion, "感想" %>
   <%= f.text_area :opinion %><br>

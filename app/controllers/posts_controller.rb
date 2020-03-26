@@ -28,7 +28,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    # @genre_post = @post.genre_post.id
+    @selected = GenrePost.where(post_id: params[:id])
+    @selected_id = @selected.map{|f| f.genre_id}
   end
 
   def update
@@ -44,5 +45,8 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :opinion, :category_id)
+  end
+  def genre_post_params
+    params.require(:genre_post).permit(:post_id, :genre_id)
   end
 end

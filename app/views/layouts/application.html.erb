@@ -13,14 +13,15 @@
     <header>
       <div class="container">
         <nav class="nav">
-          <a class="sitelogo" href="/">
+          <a class="sitelogo">
             <%= image_tag('logo.png') %>
           </a>
           <ul class="navber-right">
             <!-- 会員ログイン中 -->
             <% if user_signed_in? %>
-              <li><%= link_to "投稿", new_post_path, class: 'glyphicon glyphicon-pencil' %>
-              <li><%= link_to "マイページ", user_path(current_user.id), class: 'glyphicon glyphicon-user' %>
+              <li><%= link_to "投稿する", new_post_path, class: 'glyphicon glyphicon-pencil' %></li>
+              <li><%= link_to "投稿一覧", posts_path, class: 'glyphicon glyphicon-th-list' %></li>
+              <li><%= link_to "マイページ", user_path(current_user.id), class: 'glyphicon glyphicon-user' %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'%></li>
             <!-- 管理者ログイン中 -->
             <% elsif admin_signed_in? %>

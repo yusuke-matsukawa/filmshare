@@ -1,14 +1,32 @@
-<h3>投稿一覧</h3>
-<% @posts.each do |post| %>
-  <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-  <%= post.user.name %>
-  <%= post.title %>
-  <p>カテゴリー：<%= post.category.name %></p>
-    <p>ジャンル：
-      <% post.genre_posts.each do |genre_post| %>
-      <%= genre_post.genre.name %>
-    <% end %>
-    </p>
-  <%= post.opinion %>
-  <%= link_to "詳細をみる", post_path(post.id) %><br>
-<% end %>
+<div class="post-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <div class="post-group">
+        <% @posts.each do |post| %>
+          <div class="user-info">
+            <%= link_to user_path(post.user.id) do %>
+              <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+              <%= post.user.name %>
+            <% end %>
+          </div>
+          <div class="post-info">
+            <p class="show-title"><strong><%= post.title %></strong></p>
+            <span class="show-category">カテゴリー：<%= post.category.name %></span>
+            <span class="show-genre">ジャンル：|
+              <% post.genre_posts.each do |genre_post| %>
+                <%= genre_post.genre.name %> |
+              <% end %>
+            </span>
+          </div>
+          <div class="post-opinion">
+            <%= post.opinion %>
+          </div>
+            <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
+          <p>__________________________________________________________________________________________________________________________________</p>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,33 @@
-<h3>ユーザー情報の編集</h3>
+<!-- ユーザー情報編集 -->
+<div class="user-edit-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="user-edit-group">
+          <h3 class="text-center">ユーザー情報の編集</h3>
 
-<%= form_for(@user) do |f| %>
+          <%= form_for(@user) do |f| %>
 
-  <h4>アイコン</h4>
-  <%= f.attachment_field :profile_image %>
+            <div class="form-group">
+              <%= f.label :profile_image, "アイコン" %>
+              <%= f.attachment_field :profile_image %><br>
+            </div>
 
-  <h4>名前</h4>
-  <%= f.text_field :name %>
+            <div class="form-group">
+              <%= f.label :name, "ユーザー名" %>
+              <%= f.text_field :name, class: "form-control" %><br>
+            </div>
 
-  <h4>紹介文</h4>
-  <%= f.text_area :introduction %>
+            <div class="form-group">
+              <%= f.label :introduction, "紹介文" %>
+              <%= f.text_area :introduction, class: "form-control" %><br>
+            </div>
 
-  <%= f.submit "保存", class:"btn btn-info" %>
+              <%= f.submit "保存", class:"btn btn-info btn-lg center-block" %>
 
-<% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
