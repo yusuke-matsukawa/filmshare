@@ -28,14 +28,24 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @selected = GenrePost.where(post_id: params[:id])
-    @selected_id = @selected.map{|f| f.genre_id}
+    if @post.genre_posts.count == 1
+      @post.genre_posts.build
+      @post.genre_posts.build
+    elsif @post.genre_posts.count == 2
+      @post.genre_posts.build
+    end
   end
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-
+    pp = post_params #変数に入れる
+    if pp[:genre_posts_attributes]["1"][:genre_id] == ""
+      pp[:genre_posts_attributes].delete("1")
+    elsif pp[:genre_posts_attributes]["2"][:genre_id] == ""
+      pp[:genre_posts_attributes].delete("2")
+    end
+    post.genre_posts.destroy_all
+    post.update(pp)
     redirect_to posts_path
   end
 
@@ -44,9 +54,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :opinion, :category_id)
+    params.require(:post).permit(:title, :opinion, :category_id, genre_posts_attributes:[:genre_id])
   end
-  def genre_post_params
-    params.require(:genre_post).permit(:post_id, :genre_id)
-  end
+
 end
