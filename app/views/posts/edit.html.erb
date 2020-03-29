@@ -1,19 +1,29 @@
-<h3>投稿の編集</h3>
-<%= form_for(@post) do |f| %>
+<div class="post-new-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="post-edit-group">
+        <h3>投稿の編集</h3>
+        <%= form_for(@post) do |f| %>
 
-  <%= f.label :title, "作品名" %>
-  <%= f.text_field :title %><br/>
+          <%= f.label :title, "作品名" %>
+          <%= f.text_field :title, class: "form-control" %><br/>
 
-  <%= f.label :category_id, "カテゴリー" %>
-  <%= f.collection_select :category_id, Category.all, :id, :name %><br/>
+          <%= f.label :category_id, "カテゴリー" %>
+          <%= f.collection_select :category_id, Category.all, :id, :name, {prompt:""} ,{class: "form-control"} %><br/>
 
-  <%= f.label :genre, "ジャンル" %>
-  <%= f.fields_for :genre_posts do |ff| %>
-    <%= ff.collection_select :genre_id, Genre.all, :id, :name, class: "form-control", :prompt => "選択してください" %>
-  <% end %>
+          <%= f.label :genre, "ジャンル" %>
+          <%= f.fields_for :genre_posts do |ff| %>
+            <%= ff.collection_select :genre_id, Genre.all, :id, :name, {:prompt => "選択してください"}, {class: "form-control"} %>
+          <% end %>
 
-  <%= f.label :opinion, "感想" %>
-  <%= f.text_area :opinion %><br>
+          <%= f.label :opinion, "感想" %>
+          <%= f.text_area :opinion, class: "form-control" %><br>
 
-  <%= f.submit "保存", class:"btn btn-info" %>
-<% end %>
+          <%= f.submit "保存", class:"btn btn-info" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
