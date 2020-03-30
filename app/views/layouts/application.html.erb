@@ -27,7 +27,7 @@
             <% elsif admin_signed_in? %>
               <li><%= link_to "カテゴリ一覧", admin_categories_path, class: 'glyphicon glyphicon-th' %></li>
               <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'glyphicon glyphicon-tags' %></li>
-              <li><%= link_to "投稿一覧(仮)", admin_genres_path, class: 'glyphicon glyphicon-list-alt' %></li>
+        <!--       <li><%= link_to "投稿一覧(仮)", admin_genres_path, class: 'glyphicon glyphicon-list-alt' %></li> -->
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
             <!-- ログアウト中 -->
             <% else %>
