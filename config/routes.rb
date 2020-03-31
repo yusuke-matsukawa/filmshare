@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
+
 devise_scope :user do
   root :to => 'users/sessions#new'
 end
