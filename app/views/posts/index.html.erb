@@ -20,7 +20,7 @@
             </span>
           </div>
           <div class="post-opinion">
-            <%= post.opinion %>
+            <%= simple_format(post.opinion) %>
           </div>
             <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
           <p>__________________________________________________________________________________________________________________________________</p>

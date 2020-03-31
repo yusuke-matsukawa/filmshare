@@ -4,7 +4,7 @@
   <div class="col-md-offset-3 col-md-6">
     <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" %>
     <span class="show-name"><%= @user.name %></span><br>
-    <div class="show-intro"><%= @user.introduction %></div>
+    <div class="show-intro"><%= simple_format(@user.introduction) %></div>
     <% if @user.id == current_user.id %>
       <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-info pull-right" %>
     <% end %>
@@ -21,7 +21,7 @@
       <% end %>
     </span>
     <div class="show-opinion">
-      <%= post.opinion %><br>
+      <%= simple_format(post.opinion) %><br>
     </div>
     <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
     <p>______________________________________________________________________________________________________________________________________</p>
