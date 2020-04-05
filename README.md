@@ -1,25 +1,13 @@
 ## アプリ名
-Filmshare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+__Filmshare__
 
-Things you may want to cover:
+##説明
+映画、ドラマ、アニメの感想をシェアするSNSです。
+同じ作品を見た人や気になる作品の感想を知ることができます。
 
-* Ruby version
+##使い方
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##開発環境
+_Ruby 2.5.7
+_Ruby on Rails 5.2.4
