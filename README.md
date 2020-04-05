@@ -8,6 +8,7 @@ __Filmshare__
 
 ## 使い方
 
+
 ## 開発環境
-_Ruby 2.5.7
-_Ruby on Rails 5.2.4
+* Ruby 2.5.7
+* Ruby on Rails 5.2.4
