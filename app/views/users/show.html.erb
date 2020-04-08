@@ -23,7 +23,8 @@
     <div class="show-opinion">
       <%= simple_format(post.opinion) %><br>
     </div>
-    <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
+      <%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
+      <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
     <p>______________________________________________________________________________________________________________________________________</p>
   <% end %>
   </div>
