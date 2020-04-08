@@ -18,12 +18,14 @@ end
 
 get 'home/about' => 'homes#about'
 
-resources :posts
+resources :posts do
+  resource :commnts, only: [:create]
+end
 resources :users, only: [:show, :edit, :update]
 
 namespace :admin do
-    resources :categories, only: [:index, :create, :edit, :update, :destroy]
-    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+  resources :categories, only: [:index, :create, :edit, :update, :destroy]
+  resources :genres, only: [:index, :create, :edit, :update, :destroy]
 end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
