@@ -23,7 +23,7 @@
     <div class="show-opinion">
       <%= simple_format(post.opinion) %><br>
     </div>
-    <span class="fas fa-comment-alt" style="color: #4169e1;">:<%= post.comments.count %></span>
+    <span class="fas fa-comment-alt" style="color: #4169e1;"> : <%= post.comments.count %></span>
     <span><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
       <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
     <p>______________________________________________________________________________________________________________________________________</p>
