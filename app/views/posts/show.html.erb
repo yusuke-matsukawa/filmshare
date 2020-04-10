@@ -27,6 +27,20 @@
               <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %>
             <% end %>
           </div>
+          <div>
+            <% @post.comments.each do |comments| %>
+              <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+              <%= comment.user.name %>
+              <%= comment.content %>
+            <% end %>
+          </div>
+          <div>
+            <%= form_for [@post, @comment] do |f| %>
+              <%= f.label :content, "コメントフォーム" %>
+              <%= f.text_area :content, size: '90x5', class: "form-control" %>
+              <%= f.submit "送信", class:"btn btn-success btn-sm pull-right" %>
+            <% end %>
+          </div>
         </div>
     </div>
   </div>
