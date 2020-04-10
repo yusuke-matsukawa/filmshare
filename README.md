@@ -1,24 +1,29 @@
-# README
+## アプリ名
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+__Filmshare__
 
-Things you may want to cover:
+## 説明
 
-* Ruby version
+映画、ドラマ、アニメの感想をシェアするSNSです。  
+同じ作品を見た人や気になる作品の感想を知ることができます。
 
-* System dependencies
+## 開発環境
 
-* Configuration
+* Ruby 2.5.7
+* Ruby on Rails 5.2.4
 
-* Database creation
+## 使い方
 
-* Database initialization
+使用するには会員登録が必要です。
+1. http://54.178.207.83/ にアクセスする
+2. ヘッダの新規登録をクリック
+3. 会員登録を行う
 
-* How to run the test suite
+投稿する
+1. ヘッダの投稿をクリック
+2. 投稿内容を記入、選択し送信をクリック
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ユーザ情報編集
+1. ヘッダのマイページをクリック
+2. ユーザー情報編集ボタンをクリック
+3. アイコン、ユーザ名、紹介文が編集可能
