@@ -20,6 +20,7 @@ get 'home/about' => 'homes#about'
 
 resources :posts do
   resource :comments, only: [:create]
+  resource :favorites, only: [:create, :destroy]
 end
 resources :users, only: [:show, :edit, :update]
 

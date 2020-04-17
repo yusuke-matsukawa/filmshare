@@ -22,7 +22,19 @@
           <div class="post-opinion">
             <%= simple_format(post.opinion) %>
           </div>
-          <span class="fas fa-comment-alt" style="color: #4169e1;"> : <%= post.comments.count %></span>
+          <% if post.favorited_by?(current_user) %>
+            <%= link_to post_favorites_path(post), method: :delete do %>
+              <span class="fas fa-heart" aria-hidden="true" style="color: red;"></span>
+            <% end %>
+            <%= post.favorites.count %>
+          <% else %>
+            <%= link_to post_favorites_path(post), method: :post do %>
+              <span class="far fa-heart" aria-hidden="true"></span>
+            <% end %>
+            <%= post.favorites.count %>
+          <% end %>
+          <span class="fas fa-comment-alt" style="color: #4169e1;"></span>
+          <span><%= post.comments.count %>コメント</span>
           <span><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
             <%= link_to "詳細をみる", post_path(post.id), class:"btn btn-warning btn-sm pull-right" %><br>
           <p>__________________________________________________________________________________________________________________________________</p>
